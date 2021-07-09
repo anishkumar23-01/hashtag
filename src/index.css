@@ -46,8 +46,8 @@ body, html, .App, #root, .auth-wrapper {
 
   display: flex;
   flex-direction: column;
-  background: #ffff;
-  padding: 200px 0px 200px 0px;
+  background: rgb(0, 0, 0);
+  padding: 0px 0px 200px 0px;
 }
 
 .auth-wrapper .form-control:focus {

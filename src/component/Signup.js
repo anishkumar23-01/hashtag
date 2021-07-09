@@ -1,7 +1,9 @@
-import React,{useContext,useState} from 'react'
+import React,{useContext,useState,useEffect} from 'react'
 import './signup.css'
 import ListContext from '../Context/Context'
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import fanco from '../../src/logo1.jpeg'
+import axios from 'axios'
 
 function Signup() {
 
@@ -16,6 +18,13 @@ function Signup() {
         timezone: '',
         captcha: 'true'
       })
+      useEffect (()=> {
+        
+      axios.post('https://admin.fanconvo.com/api/v3/sign-up/fan', state)
+        .then(function (response) {
+          console.log(response);
+          setList((previos)=>[...previos,state])
+        })},[])
 
       const handleChange = (e) => {
         setState((prev) =>({   
@@ -38,10 +47,22 @@ function Signup() {
 console.log(List);
 
     return (
+      <div>
         <div className="auth-inn">
+          <div className="head">
+        
+        </div>
+          <div className="cardnn">
+          
+        <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text"></input>
+        </div>
+        <div className="headerr">
+            <img src={fanco} alt=""/>
+            <h1>My website name</h1>
+        </div>
     <div className="row justify-content-center">
     <div className="col-md-6">
-      <div className="card">
+      <div className="cardname">
         <header className="card-header">
           <h4 className="card-title mt-2">Sign-Up</h4>
         </header>
@@ -164,6 +185,7 @@ console.log(List);
           
           
           </article>
+          </div>
           </div>
           </div>
           </div>
